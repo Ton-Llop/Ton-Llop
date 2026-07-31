@@ -2,7 +2,7 @@
 
 # Ton Llop
 
-**Engineering student at Universitat Rovira i Virgili (Tarragona)**
+**Engineering student at Universitat Rovira i Virgili (Tarragona)**<br>
 Backend, distributed systems and infrastructure — from message queues and containers up to MIPS processors in Verilog.
 
 <p>
@@ -36,52 +36,52 @@ I work in English, Spanish and Catalan.
 
 ### Distributed systems & cloud
 
-**Scalable and Elastic Ticket Service** · `Public`
-A ticket-processing system on AWS managed services: producers publish to RabbitMQ, stateless Fargate workers consume and commit to PostgreSQL, and a scaler adjusts worker count from queue backlog. Implements idempotency keys, at-least-once delivery with retries and dead-letter queues, and consistency guarantees under concurrency. Includes a benchmark suite measuring throughput, speedup and p50/p95/p99 latency across worker counts.
-`Python` `AWS ECS Fargate` `RabbitMQ` `PostgreSQL` `Docker`
+**Scalable and Elastic Ticket Service** · `Public`<br>
+A ticket-processing system on AWS managed services: producers publish to RabbitMQ, stateless Fargate workers consume and commit to PostgreSQL, and a scaler adjusts worker count from queue backlog. Implements idempotency keys, at-least-once delivery with retries and dead-letter queues, and consistency guarantees under concurrency. Includes a benchmark suite measuring throughput, speedup and p50/p95/p99 latency across worker counts.<br>
+`Python` `AWS ECS Fargate` `RabbitMQ` `PostgreSQL` `Docker`<br>
 → [Managed-services version](https://github.com/Ton-Llop/Scalable-and-Elastic-Ticket-Service-AWS-Managed-Systems-) · [self-hosted EC2 version](https://github.com/Ton-Llop/scalable-tickets)
 
-**GSX Infrastructure** · `Public`
-A full application stack deployed two ways — Docker Compose locally and Kubernetes manifests orchestrated with Terraform — with network segmentation (DMZ / internal / data / monitoring), default-deny NetworkPolicies, and an observability layer of Prometheus, Alertmanager and Grafana.
-`Terraform` `Kubernetes` `Docker` `Flask` `Redis` `Prometheus` `Grafana`
+**GSX Infrastructure** · `Public`<br>
+A full application stack deployed two ways — Docker Compose locally and Kubernetes manifests orchestrated with Terraform — with network segmentation (DMZ / internal / data / monitoring), default-deny NetworkPolicies, and an observability layer of Prometheus, Alertmanager and Grafana.<br>
+`Terraform` `Kubernetes` `Docker` `Flask` `Redis` `Prometheus` `Grafana`<br>
 → [Repository](https://github.com/Ton-Llop/GSX-Infrastructure)
 
 ### Scientific & production software
 
-**Lipopotamo — scientific data platform** · `Internal project`
-Modular platform for processing and managing scientific data, with workflows around NMR analysis. Asynchronous processing through specialized workers, execution of scientific software, management of batches/samples/runs and their outputs, report generation, execution history, partial re-runs and versioned merge strategies — across multiple communicating services.
+**Lipopotamo — scientific data platform** · `Internal project`<br>
+Modular platform for processing and managing scientific data, with workflows around NMR analysis. Asynchronous processing through specialized workers, execution of scientific software, management of batches/samples/runs and their outputs, report generation, execution history, partial re-runs and versioned merge strategies — across multiple communicating services.<br>
 `Python` `FastAPI` `MongoDB` `React` `TypeScript` `Vite` `Keycloak` `Docker Compose`
 
-**Beer Counter — mobile application** · `Private project`
-A complete social mobile app: authentication, statistics, achievements, friends, leagues and seasons, data export, deep links, moderation and account deletion. Backed by PostgreSQL with Row Level Security and RPC functions, plus automation workflows.
+**Beer Counter — mobile application** · `Private project`<br>
+A complete social mobile app: authentication, statistics, achievements, friends, leagues and seasons, data export, deep links, moderation and account deletion. Backed by PostgreSQL with Row Level Security and RPC functions, plus automation workflows.<br>
 `Flutter` `Dart` `Supabase` `PostgreSQL` `n8n`
 
-**Offline-first rental management app** · `Private project`
-Android client consuming a REST API, designed to work without connectivity and reconcile local state on reconnection.
+**Offline-first rental management app** · `Private project`<br>
+Android client consuming a REST API, designed to work without connectivity and reconcile local state on reconnection.<br>
 `Kotlin` `Android` `REST`
 
 ### Computer architecture
 
-**Single-cycle MIPS processor** · `Public` — full datapath and control unit implemented and simulated at gate level.
+**Single-cycle MIPS processor** · `Public` — full datapath and control unit implemented and simulated at gate level.<br>
 `Verilog` `TKGate` → [Repository](https://github.com/Ton-Llop/Procesador-MIPS-Monociclo)
 
-**Superscalar processor simulation & Alloyed branch predictor** · `Public` — modelling out-of-order execution behaviour and implementing a hybrid branch predictor, then analysing prediction accuracy.
+**Superscalar processor simulation & Alloyed branch predictor** · `Public` — modelling out-of-order execution behaviour and implementing a hybrid branch predictor, then analysing prediction accuracy.<br>
 `C` → [Superscalar](https://github.com/Ton-Llop/P1-AC) · [Alloyed predictor](https://github.com/Ton-Llop/P2-AC)
 
 ### Algorithms & data
 
-**Graph centrality at scale** · `Public`
-PageRank and betweenness centrality over graphs loaded from GraphML and Pajek NET, designed to stay usable on real-world web graphs of 10K–100K+ vertices.
+**Graph centrality at scale** · `Public`<br>
+PageRank and betweenness centrality over graphs loaded from GraphML and Pajek NET, designed to stay usable on real-world web graphs of 10K–100K+ vertices.<br>
 `Java` → [Repository](https://github.com/Ton-Llop/Practica-final-ED)
 
-**Collaborative filtering & recommendation** · `Public`
-Implementation of collaborative filtering methods for personalization and recommendation, plus supply-chain data analysis.
+**Collaborative filtering & recommendation** · `Public`<br>
+Implementation of collaborative filtering methods for personalization and recommendation, plus supply-chain data analysis.<br>
 `Python` → [Recommenders](https://github.com/Ton-Llop/P2-SIO) · [Supply chain analysis](https://github.com/Ton-Llop/P1-SIO)
 
 ### Security (learning track)
 
-**Ninjadorks** · `Public`
-Search-automation toolkit for authorized research: advanced query building across Google and DuckDuckGo, structured JSON/HTML export, selective file retrieval, and regex or model-assisted analysis of the results.
+**Ninjadorks** · `Public`<br>
+Search-automation toolkit for authorized research: advanced query building across Google and DuckDuckGo, structured JSON/HTML export, selective file retrieval, and regex or model-assisted analysis of the results.<br>
 `Python` `Selenium` → [Repository](https://github.com/Ton-Llop/Google-Dorks) · [Learning labs](https://github.com/Ton-Llop/Cybersecurity-Learning-Labs)
 
 ## Tech stack
