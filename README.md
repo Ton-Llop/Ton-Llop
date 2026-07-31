@@ -56,9 +56,6 @@ Modular platform for processing and managing scientific data, with workflows aro
 A complete social mobile app: authentication, statistics, achievements, friends, leagues and seasons, data export, deep links, moderation and account deletion. Backed by PostgreSQL with Row Level Security and RPC functions, plus automation workflows.<br>
 `Flutter` `Dart` `Supabase` `PostgreSQL` `n8n`
 
-**Offline-first rental management app** · `Private project`<br>
-Android client consuming a REST API, designed to work without connectivity and reconcile local state on reconnection.<br>
-`Kotlin` `Android` `REST`
 
 ### Computer architecture
 
