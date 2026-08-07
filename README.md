@@ -54,7 +54,7 @@ Modular platform for processing and managing scientific data, with workflows aro
 
 **Beer Counter — mobile application** · `Private project`<br>
 A complete social mobile app: authentication, statistics, achievements, friends, leagues and seasons, data export, deep links, moderation and account deletion. Backed by PostgreSQL with Row Level Security and RPC functions, plus automation workflows.<br>
-`Flutter` `Dart` `Supabase` `PostgreSQL` `n8n`
+`Flutter` `Dart` `Supabase` `PostgreSQL` `n8n` → [Link](https://play.google.com/store/apps/details?id=com.ton.beerfantasy)
 
 
 ### Computer architecture
