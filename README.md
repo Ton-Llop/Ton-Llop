@@ -9,6 +9,7 @@ Backend, distributed systems and infrastructure — from message queues and cont
   <a href="https://www.linkedin.com/in/antoni-llop/"><img src="https://img.shields.io/badge/LinkedIn-antoni--llop-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
   <a href="mailto:tonichi003@gmail.com"><img src="https://img.shields.io/badge/Email-tonichi003@gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Email" /></a>
   <img src="https://img.shields.io/badge/Location-Tarragona,%20Spain-4B5563?style=flat-square" alt="Location" />
+  <img src="https://komarev.com/ghpvc/?username=Ton-Llop&label=Profile%20views&color=4B5563&style=flat-square" alt="Profile views" />
 </p>
 
 </div>
