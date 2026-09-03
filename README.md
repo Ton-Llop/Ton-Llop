@@ -2,8 +2,9 @@
 
 # Ton Llop
 
-**Engineering student at Universitat Rovira i Virgili (Tarragona)**<br>
-Backend, distributed systems and infrastructure — from message queues and containers up to MIPS processors in Verilog.
+**DevSecOps · Platform & Infrastructure Engineering**<br>
+
+Engineering student at Universitat Rovira i Virgili (Tarragona). I mostly work around backend systems, infrastructure, containers and CI/CD, with a growing focus on security and on-premises AI.
 
 <p>
   <a href="https://www.linkedin.com/in/antoni-llop/"><img src="https://img.shields.io/badge/LinkedIn-antoni--llop-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
@@ -18,123 +19,155 @@ Backend, distributed systems and infrastructure — from message queues and cont
 
 ## About me
 
-I build systems that have to keep working when things go wrong: queues that lose messages, workers that die halfway through a job, containers that need to find each other, pipelines that must not process the same request twice.
+I enjoy building systems where there is more going on than just handling an HTTP request: queues, background workers, containers, retries, failures and services that need to coordinate with each other.
 
-Most of my work sits between the backend and the infrastructure underneath it — designing APIs, wiring services together with Docker, moving processing off the request path into workers, and then measuring whether the result actually scales. I also spend time closer to the metal, in computer architecture and low-level C, and I like that both ends of that spectrum inform each other.
+Most of what I work on sits somewhere between backend development and infrastructure. I like figuring out how services should communicate, how to deploy them, how to observe what they are doing and, especially, what happens when something fails.
 
-Part of what I do lives in private repositories (research software and a mobile application), so the public side of this profile is only part of the picture.
+Lately I've been spending more time on DevSecOps and on running AI workloads locally. I'm interested in the practical side of infrastructure: resource limits, networking, security, performance and the trade-offs behind different deployment decisions.
+
+I also enjoy lower-level topics such as computer architecture and C. They are quite different from infrastructure work, but understanding what happens closer to the hardware helps me reason about systems and performance.
+
+Some of my work lives in private repositories, mainly research software and a mobile application, so the public repositories here are only part of what I've worked on.
 
 I work in English, Spanish and Catalan.
 
 ## What I'm working on
 
-- **Scientific data platform** — modular, containerized services for scientific data processing, built with FastAPI and a React/TypeScript frontend.
-- **Local AI infrastructure** — researching how an organization can run models on-premises: compute server, NAS storage, rented vs. owned GPUs, and the cost/performance/consumption trade-off against cloud inference.
-- **Distributed systems** — queue-based architectures, worker autoscaling, and understanding where the real bottleneck is instead of guessing.
-- **Cybersecurity** — an ongoing learning track: tooling, automation and hands-on labs.
+* **Local AI infrastructure** — exploring what it actually takes to run LLMs on-premises: hardware requirements, GPU and RAM usage, storage, power consumption and the trade-offs between local and cloud inference. I'm building [Jaull](https://github.com/Ton-Llop/Jaull) around this.
+
+* **DevOps & distributed systems** — experimenting with queue-based architectures, worker scaling, containers, Kubernetes and infrastructure as code.
+
+* **DevSecOps** — learning how to bring security into the development and deployment workflow through network isolation, scanning, secrets management and safer defaults.
+
+* **Homelab** — maintaining a small [homelab](https://github.com/Ton-Llop/Homelab) where I can try all of this on real infrastructure, break things, understand why they broke and document what I learn.
 
 ## Selected projects
 
-### Distributed systems & cloud
-
-**Scalable and Elastic Ticket Service** · `Public`<br>
-A ticket-processing system on AWS managed services: producers publish to RabbitMQ, stateless Fargate workers consume and commit to PostgreSQL, and a scaler adjusts worker count from queue backlog. Implements idempotency keys, at-least-once delivery with retries and dead-letter queues, and consistency guarantees under concurrency. Includes a benchmark suite measuring throughput, speedup and p50/p95/p99 latency across worker counts.<br>
-`Python` `AWS ECS Fargate` `RabbitMQ` `PostgreSQL` `Docker`<br>
-→ [Managed-services version](https://github.com/Ton-Llop/Scalable-and-Elastic-Ticket-Service-AWS-Managed-Systems-) · [self-hosted EC2 version](https://github.com/Ton-Llop/scalable-tickets)
+### Platform & infrastructure
 
 **GSX Infrastructure** · `Public`<br>
-A full application stack deployed two ways — Docker Compose locally and Kubernetes manifests orchestrated with Terraform — with network segmentation (DMZ / internal / data / monitoring), default-deny NetworkPolicies, and an observability layer of Prometheus, Alertmanager and Grafana.<br>
+An application stack that I deployed in two different ways: locally with Docker Compose and with Kubernetes managed through Terraform. It includes separate network zones, default-deny NetworkPolicies and monitoring with Prometheus, Alertmanager and Grafana.<br>
 `Terraform` `Kubernetes` `Docker` `Flask` `Redis` `Prometheus` `Grafana`<br>
 → [Repository](https://github.com/Ton-Llop/GSX-Infrastructure)
 
-### Scientific & production software
+**Scalable and Elastic Ticket Service** · `Public`<br>
+A distributed ticket-processing system built around RabbitMQ and PostgreSQL. Producers publish work to a queue, Fargate workers process it, and worker capacity is adjusted according to the queue backlog. The project also covers retries, dead-letter queues, idempotency and concurrent processing, with benchmarks for throughput and latency.<br>
+`Python` `AWS ECS Fargate` `RabbitMQ` `PostgreSQL` `Docker`<br>
+→ [Managed-services version](https://github.com/Ton-Llop/Scalable-and-Elastic-Ticket-Service-AWS-Managed-Systems-) · [Self-hosted EC2 version](https://github.com/Ton-Llop/scalable-tickets)
+
+### AI infrastructure
+
+**Jaull** · `Public`<br>
+A project I'm building to understand whether a local LLM deployment will actually fit and behave well on a given machine before running it. It analyses the available hardware, estimates model memory requirements and validates those predictions against real executions.<br>
+`Python` → [Repository](https://github.com/Ton-Llop/Jaull)
+
+### Production software
 
 **Lipopotamo — scientific data platform** · `Internal project`<br>
-Modular platform for processing and managing scientific data, with workflows around NMR analysis. Asynchronous processing through specialized workers, execution of scientific software, management of batches/samples/runs and their outputs, report generation, execution history, partial re-runs and versioned merge strategies — across multiple communicating services.<br>
+A multi-service platform used for scientific data processing around NMR workflows. I've worked on asynchronous workers, external scientific software execution, batch and sample management, report generation, execution history, partial re-runs and versioned data merging. The platform uses Keycloak for authentication and runs as several communicating services with Docker Compose.<br>
 `Python` `FastAPI` `MongoDB` `React` `TypeScript` `Vite` `Keycloak` `Docker Compose`
 
+### Security
+
+**Ninjadorks** · `Public`<br>
+A search automation tool I built while learning about OSINT and security research. It can build advanced queries for Google and DuckDuckGo, export results, retrieve selected files and analyse collected content with regex or model-assisted processing.<br>
+`Python` `Selenium` → [Repository](https://github.com/Ton-Llop/Google-Dorks) · [Learning labs](https://github.com/Ton-Llop/Cybersecurity-Learning-Labs)
+
+### Homelab & configuration as code
+
+**Homelab** · `Public`<br>
+My small self-hosted lab for learning infrastructure by actually running it. I use it to experiment with networking, containers, monitoring, self-hosted services and automation, while keeping the configuration and documentation in Git.<br>
+`Python` `Shell` → [Homelab](https://github.com/Ton-Llop/Homelab) · [Debian config](https://github.com/Ton-Llop/Debian-Config)
+
+<details>
+
+<summary><b>Coursework &amp; earlier projects</b></summary>
+
+<br>
+
 **Beer Counter — mobile application** · `Private project`<br>
-A complete social mobile app: authentication, statistics, achievements, friends, leagues and seasons, data export, deep links, moderation and account deletion. Backed by PostgreSQL with Row Level Security and RPC functions, plus automation workflows.<br>
-`Flutter` `Dart` `Supabase` `PostgreSQL` `n8n` → [Link](https://play.google.com/store/apps/details?id=com.ton.beerfantasy)
+A social mobile app with authentication, statistics, achievements, friends, leagues, seasons, data export, deep links, moderation and account deletion. The backend uses PostgreSQL with Row Level Security and RPC functions, together with automation workflows.<br>
+`Flutter` `Dart` `Supabase` `PostgreSQL` `n8n` → [Google Play](https://play.google.com/store/apps/details?id=com.ton.beerfantasy)
 
-
-### Computer architecture
-
-**Single-cycle MIPS processor** · `Public` — full datapath and control unit implemented and simulated at gate level.<br>
+**Single-cycle MIPS processor** · `Public`<br>
+A complete single-cycle MIPS datapath and control unit implemented and simulated at gate level.<br>
 `Verilog` `TKGate` → [Repository](https://github.com/Ton-Llop/Procesador-MIPS-Monociclo)
 
-**Superscalar processor simulation & Alloyed branch predictor** · `Public` — modelling out-of-order execution behaviour and implementing a hybrid branch predictor, then analysing prediction accuracy.<br>
+**Superscalar processor simulation & Alloyed branch predictor** · `Public`<br>
+Simulation of out-of-order execution behaviour and implementation of a hybrid branch predictor to study prediction accuracy.<br>
 `C` → [Superscalar](https://github.com/Ton-Llop/P1-AC) · [Alloyed predictor](https://github.com/Ton-Llop/P2-AC)
 
-### Algorithms & data
-
 **Graph centrality at scale** · `Public`<br>
-PageRank and betweenness centrality over graphs loaded from GraphML and Pajek NET, designed to stay usable on real-world web graphs of 10K–100K+ vertices.<br>
+Implementations of PageRank and betweenness centrality for GraphML and Pajek NET graphs, designed to remain usable with graphs containing tens of thousands of vertices.<br>
 `Java` → [Repository](https://github.com/Ton-Llop/Practica-final-ED)
 
 **Collaborative filtering & recommendation** · `Public`<br>
-Implementation of collaborative filtering methods for personalization and recommendation, plus supply-chain data analysis.<br>
+Implementations of collaborative filtering techniques for recommendation, together with a separate supply-chain data analysis project.<br>
 `Python` → [Recommenders](https://github.com/Ton-Llop/P2-SIO) · [Supply chain analysis](https://github.com/Ton-Llop/P1-SIO)
 
-### Security (learning track)
-
-**Ninjadorks** · `Public`<br>
-Search-automation toolkit for authorized research: advanced query building across Google and DuckDuckGo, structured JSON/HTML export, selective file retrieval, and regex or model-assisted analysis of the results.<br>
-`Python` `Selenium` → [Repository](https://github.com/Ton-Llop/Google-Dorks) · [Learning labs](https://github.com/Ton-Llop/Cybersecurity-Learning-Labs)
+</details>
 
 ## Tech stack
 
-**Languages**
+### Infrastructure & cloud
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Dart](https://img.shields.io/badge/Dart-0175C2?style=flat-square&logo=dart&logoColor=white)
-![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=flat-square&logo=kotlin&logoColor=white)
-![Java](https://img.shields.io/badge/Java-E76F00?style=flat-square&logo=openjdk&logoColor=white)
-![C](https://img.shields.io/badge/C-4B5563?style=flat-square&logo=c&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-336791?style=flat-square&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square\&logo=docker\&logoColor=white)
+![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square\&logo=kubernetes\&logoColor=white)
+![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=flat-square\&logo=terraform\&logoColor=white)
+![AWS](https://img.shields.io/badge/AWS%20EC2%20%7C%20ECS%20Fargate-232F3E?style=flat-square\&logo=amazonwebservices\&logoColor=white)
+![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=flat-square\&logo=prometheus\&logoColor=white)
+![Grafana](https://img.shields.io/badge/Grafana-F46800?style=flat-square\&logo=grafana\&logoColor=white)
+![Keycloak](https://img.shields.io/badge/Keycloak-4D4D4D?style=flat-square\&logo=keycloak\&logoColor=white)
+
+<sub>Infrastructure as code · container orchestration · network segmentation · observability · metrics · alerting · dashboards</sub>
+
+### CI/CD & security
+
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=flat-square\&logo=githubactions\&logoColor=white)
+![n8n](https://img.shields.io/badge/n8n-EA4B71?style=flat-square\&logo=n8n\&logoColor=white)
+
+<sub>Currently going deeper on: Ansible · Helm · Argo CD · Trivy</sub>
+
+### Languages
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square\&logo=python\&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square\&logo=typescript\&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square\&logo=javascript\&logoColor=black)
+![Dart](https://img.shields.io/badge/Dart-0175C2?style=flat-square\&logo=dart\&logoColor=white)
+![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=flat-square\&logo=kotlin\&logoColor=white)
+![Java](https://img.shields.io/badge/Java-E76F00?style=flat-square\&logo=openjdk\&logoColor=white)
+![C](https://img.shields.io/badge/C-4B5563?style=flat-square\&logo=c\&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-336791?style=flat-square\&logo=postgresql\&logoColor=white)
+![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat-square\&logo=gnubash\&logoColor=white)
 ![Verilog](https://img.shields.io/badge/Verilog-1E6B52?style=flat-square)
-![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white)
 
-**Backend & data**
+### Backend & data
 
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white)
-![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=flat-square&logo=supabase&logoColor=white)
-![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=flat-square&logo=rabbitmq&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-1F2937?style=flat-square&logo=flask&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat-square\&logo=fastapi\&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square\&logo=postgresql\&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square\&logo=mongodb\&logoColor=white)
+![Redis](https://img.shields.io/badge/Redis-DC382D?style=flat-square\&logo=redis\&logoColor=white)
+![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=flat-square\&logo=supabase\&logoColor=white)
+![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=flat-square\&logo=rabbitmq\&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-1F2937?style=flat-square\&logo=flask\&logoColor=white)
 
-<sub>Also: REST APIs · WebSockets · asynchronous processing · queue-based and worker architectures</sub>
+<sub>REST APIs · WebSockets · asynchronous processing · queue-based architectures · background workers</sub>
 
-**Frontend & mobile**
+### Frontend & mobile
 
-![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
-![Chakra UI](https://img.shields.io/badge/Chakra%20UI-319795?style=flat-square&logo=chakraui&logoColor=white)
-![Flutter](https://img.shields.io/badge/Flutter-02569B?style=flat-square&logo=flutter&logoColor=white)
-![Android](https://img.shields.io/badge/Android-3DDC84?style=flat-square&logo=android&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=flat-square\&logo=react\&logoColor=black)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square\&logo=vite\&logoColor=white)
+![Chakra UI](https://img.shields.io/badge/Chakra%20UI-319795?style=flat-square\&logo=chakraui\&logoColor=white)
+![Flutter](https://img.shields.io/badge/Flutter-02569B?style=flat-square\&logo=flutter\&logoColor=white)
+![Android](https://img.shields.io/badge/Android-3DDC84?style=flat-square\&logo=android\&logoColor=white)
 
-**Infrastructure & cloud**
+### Tooling
 
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![Kubernetes](https://img.shields.io/badge/Kubernetes-326CE5?style=flat-square&logo=kubernetes&logoColor=white)
-![Terraform](https://img.shields.io/badge/Terraform-7B42BC?style=flat-square&logo=terraform&logoColor=white)
-![AWS](https://img.shields.io/badge/AWS%20EC2%20%7C%20ECS%20Fargate-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white)
-![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=flat-square&logo=prometheus&logoColor=white)
-![Grafana](https://img.shields.io/badge/Grafana-F46800?style=flat-square&logo=grafana&logoColor=white)
-![Keycloak](https://img.shields.io/badge/Keycloak-4D4D4D?style=flat-square&logo=keycloak&logoColor=white)
-![n8n](https://img.shields.io/badge/n8n-EA4B71?style=flat-square&logo=n8n&logoColor=white)
-
-**Tooling**
-
-![Linux](https://img.shields.io/badge/Linux-1F2937?style=flat-square&logo=linux&logoColor=white)
-![WSL](https://img.shields.io/badge/WSL-0078D4?style=flat-square&logo=windows&logoColor=white)
-![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
-![Neovim](https://img.shields.io/badge/Neovim-57A143?style=flat-square&logo=neovim&logoColor=white)
-![tmux](https://img.shields.io/badge/tmux-1BB91F?style=flat-square&logo=tmux&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-1F2937?style=flat-square\&logo=linux\&logoColor=white)
+![WSL](https://img.shields.io/badge/WSL-0078D4?style=flat-square\&logo=windows\&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat-square\&logo=git\&logoColor=white)
+![Neovim](https://img.shields.io/badge/Neovim-57A143?style=flat-square\&logo=neovim\&logoColor=white)
+![tmux](https://img.shields.io/badge/tmux-1BB91F?style=flat-square\&logo=tmux\&logoColor=white)
 
 ## Activity
 
@@ -150,12 +183,12 @@ Search-automation toolkit for authorized research: advanced query building acros
 
 ## Get in touch
 
-Open to collaborating on backend platforms, distributed and queue-based systems, cloud infrastructure, scientific software, local AI infrastructure, and complete web or mobile applications. Also interested in internships and thesis projects in these areas.
+I'm interested in platform and infrastructure engineering, DevSecOps, distributed systems and on-premises AI. I'm also open to internships where I can keep learning and work on real systems in these areas.
 
 <div align="center">
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Antoni%20Llop-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/antoni-llop/)
-[![Email](https://img.shields.io/badge/Email-tonichi003@gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:tonichi003@gmail.com)
-[![GitHub](https://img.shields.io/badge/GitHub-@Ton--Llop-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/Ton-Llop)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Antoni%20Llop-0A66C2?style=flat-square\&logo=linkedin\&logoColor=white)](https://www.linkedin.com/in/antoni-llop/)
+[![Email](https://img.shields.io/badge/Email-tonichi003@gmail.com-EA4335?style=flat-square\&logo=gmail\&logoColor=white)](mailto:tonichi003@gmail.com)
+[![GitHub](https://img.shields.io/badge/GitHub-@Ton--Llop-181717?style=flat-square\&logo=github\&logoColor=white)](https://github.com/Ton-Llop)
 
 </div>
